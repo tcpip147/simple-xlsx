@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="simple-xlsx.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const xlsx = new SimpleXlsx();
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:9999/excel.xlsx");
+        xhr.responseType = "blob";
+        xhr.onreadystatechange = function (event) {
+            const { target } = event;
+
+            if (target.readyState === XMLHttpRequest.DONE) {
+                const { status } = target;
+
+                if (status === 0 || (status >= 200 && status < 400)) {
+                    target.response.arrayBuffer().then(function (buff) {
+                        const data = new Uint8Array(buff);
+                        xlsx.unzip(data);
+                    });
+                } else {
+                    // 에러가 발생한 경우
+                }
+            }
+        }
+        xhr.send();
+    </script>
+</body>
+
+</html>
