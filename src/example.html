@@ -12,27 +12,6 @@
 <body>
     <script>
         const xlsx = new SimpleXlsx();
-
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:9999/excel.xlsx");
-        xhr.responseType = "blob";
-        xhr.onreadystatechange = function (event) {
-            const { target } = event;
-
-            if (target.readyState === XMLHttpRequest.DONE) {
-                const { status } = target;
-
-                if (status === 0 || (status >= 200 && status < 400)) {
-                    target.response.arrayBuffer().then(function (buff) {
-                        const data = new Uint8Array(buff);
-                        xlsx.unzip(data);
-                    });
-                } else {
-                    // 에러가 발생한 경우
-                }
-            }
-        }
-        xhr.send();
     </script>
 </body>
 

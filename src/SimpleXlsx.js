@@ -1,11 +1,8 @@
-import XmlParser from "./XmlParser";
-import Zip from "./Zip";
+const { XMLParser, XMLBuilder, XMLValidator } = require("fast-xml-parser");
+const JSZip = require("jszip");
 
 function SimpleXlsx() {
-    new XmlParser();
-    const zip = new Zip();
-
-    SimpleXlsx.prototype.unzip = zip.unzip;
+    
 }
 
 export default SimpleXlsx;
