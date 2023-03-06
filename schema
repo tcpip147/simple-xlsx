@@ -1,0 +1,23 @@
+[font]
+name                  fontName: 'Gothic'
+charset         
+family          
+b                     fontBold: true
+i                     fontItalic: true
+strike                fontStrike: true
+outline         
+shadow          
+condense          
+extend          
+color                 fontColor: FF0000
+sz                    fontSize: 14
+u                     fontUnderline: single, double
+verticalAlign         fontVerticalAlign: baseline, superscript, subscript
+schema
+
+[fill]
+patternFill
+gradientFill
+patternType
+fgColor               backgroundColor: FF0000
+bgColor

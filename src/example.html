@@ -12,9 +12,11 @@
 <body>
     <script>
         const xlsx = new SimpleXlsx();
-        // xlsx.appendWorksheet("시트1");
-        console.log(xlsx.getDoc());
-        xlsx.output("dd");
+        const sheet = xlsx.createSheet("시트1");
+        sheet.setCellValue(2, 4, "String", "한글");
+        sheet.setCellValue(2, 2, "String", "500");
+        sheet.setCellStyle(2, 4, { fontSize: 20, backgroundColor: "FF0000" });
+        // xlsx.write("dd.xlsx");
     </script>
 </body>
 
